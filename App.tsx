@@ -1,17 +1,25 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, useColorScheme } from 'react-native';
+import React, { Fragment } from 'react';
+import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import MainApp from './src';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  const backgroundStyle = {
+    flex: 1,
+    backgroundColor: '#ececec',
+  };
 
   return (
-    <GestureHandlerRootView>
-      <SafeAreaView>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <ScrollView contentInsetAdjustmentBehavior="automatic"></ScrollView>
+    <Fragment>
+      <SafeAreaView style={backgroundStyle}>
+        <StatusBar barStyle={'dark-content'} backgroundColor={backgroundStyle.backgroundColor} />
+        <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle} contentContainerStyle={backgroundStyle}>
+          <GestureHandlerRootView style={backgroundStyle}>
+            <MainApp />
+          </GestureHandlerRootView>
+        </ScrollView>
       </SafeAreaView>
-    </GestureHandlerRootView>
+    </Fragment>
   );
 }
 
