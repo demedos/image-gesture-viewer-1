@@ -1,23 +1,23 @@
 import React, { Fragment } from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import MainApp from './src';
 
 function App() {
-  const backgroundStyle = {
-    backgroundColor: 'black',
-  };
-
   return (
     <Fragment>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={'light-content'} backgroundColor={backgroundStyle.backgroundColor} />
-        <GestureHandlerRootView style={backgroundStyle}>
-          <MainApp />
-        </GestureHandlerRootView>
-      </SafeAreaView>
+      <StatusBar barStyle="light-content" backgroundColor={styles.background.backgroundColor} />
+      <GestureHandlerRootView style={styles.background}>
+        <MainApp />
+      </GestureHandlerRootView>
     </Fragment>
   );
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: 'black',
+  },
+});
