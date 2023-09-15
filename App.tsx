@@ -28,6 +28,8 @@ function App() {
   };
 
   const getMatrixValues = () => {
+    'worklet';
+
     return {
       scale: matrix.value[0],
       translateX: matrix.value[12],
