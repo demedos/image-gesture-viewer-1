@@ -51,11 +51,6 @@ function App() {
   // @ts-ignore
   const rStyle = useAnimatedStyle(() => {
     return {
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      width,
-      height,
       transform: [
         { translateX: -width / 2 },
         { translateY: -height / 2 },
@@ -66,7 +61,7 @@ function App() {
     };
   });
 
-  const gesture = Gesture.Race(doubleTapGesture, panGesture, pinchGesture);
+  const gesture = Gesture.Race(doubleTapGesture, pinchGesture, panGesture);
 
   return (
     <Fragment>
