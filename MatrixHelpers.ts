@@ -15,11 +15,16 @@ export const transformOrigin3d = (origin: Vec3, transform: Transforms3d): Transf
   ];
 };
 
-// matrix.value = concat(offset.value, origin.value, [{ scale: e.scale }]);
 export const concat = (m: Matrix4, origin: Vec3, transform: Transforms3d) => {
   'worklet';
   const transforms = transformOrigin3d(origin, transform);
   const matrix = processTransform3d(transforms);
 
   return multiply4(m, matrix);
+};
+
+export const translate = (matrix: Matrix4, x: number, y: number) => {
+  'worklet';
+
+  return multiply4(Matrix4.translate(x, y, 0), matrix);
 };
